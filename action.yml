@@ -1,0 +1,23 @@
+name: 'Webex_PR_Notification'
+description: 'Send a Webex Notification to all pull request reviewers'
+author: 'George Ekow-Daniels'
+branding:
+  icon: 'eye'
+  color: 'blue'
+secrets:
+  WEBEX_TOKEN:
+    description: 'The WEBEX API TOKEN'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Notify webex team space
+      env:
+        WEBEX_TOKEN: ${{ secrets.WEBEX_TOKEN }}
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run:  node webex.js

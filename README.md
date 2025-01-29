@@ -10,6 +10,10 @@ This GitHub Action send a Webex notification to all reviewers.
 
   - 'WEBEX_TOKEN`: The Webex api token
 
+## ENV
+
+  - `GITHUB_CONTEXT`: A json formate of github value
+
 ## Example Usage
 
 ```yaml
@@ -23,6 +27,8 @@ jobs:
     permissions:
       contents: read
     uses: gekowdaniels/webex_pr_notification@v1.0.0-alpha
-    with:
+    secrets:
       WEBEX_TOKEN:  ${{ secrets.WEBEX_TOKEN }}
+    env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
 

@@ -22,7 +22,7 @@ jobs:
   webex:
     permissions:
       contents: read
-    uses: gekowdaniels/webex_pr_notification
-    secrets:
+    uses: gekowdaniels/webex_pr_notification@v1.0.0-alpha
+    with:
       WEBEX_TOKEN:  ${{ secrets.WEBEX_TOKEN }}
 

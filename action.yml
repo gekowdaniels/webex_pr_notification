@@ -4,7 +4,7 @@ author: 'George Ekow-Daniels'
 branding:
   icon: 'eye'
   color: 'blue'
-secrets:
+inputs:
   WEBEX_TOKEN:
     description: 'The WEBEX API TOKEN'
     required: true
@@ -18,6 +18,6 @@ runs:
 
     - name: Notify webex team space
       env:
-        WEBEX_TOKEN: ${{ secrets.WEBEX_TOKEN }}
+        WEBEX_TOKEN: ${{ inputs.WEBEX_TOKEN }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run:  node webex.js

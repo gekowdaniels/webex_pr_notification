@@ -6,5 +6,10 @@ branding:
   color: 'blue'
 
 runs:
-    - using: node22
+    - name: setup-node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: run
       run:  node webex.js
